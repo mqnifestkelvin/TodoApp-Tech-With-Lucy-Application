@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./TodoApp
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./TodoApp:/app
+      - sqlite-data:/app/db.sqlite3
+    environment:
+      - DEBUG=True
+
+  frontend:
+    build:
+      context: ./todofrontend
+    ports:
+      - "3000:80"
+
+volumes:
+  sqlite-data:

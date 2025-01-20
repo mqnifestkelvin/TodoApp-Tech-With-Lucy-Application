@@ -1,0 +1,16 @@
+[Unit]
+Description=uWSGI Emperor for Todo App
+After=network.target
+
+[Service]
+User=ubuntu 
+Group=www-data 
+Restart=always
+ExecStart=/home/ubuntu/TODOAPP-TECH-WITH-LUCY-APPLICATION/TodoApp/env/md/bin/uwsgi --emperor /home/ubuntu/TODOAPP-TECH-WITH-LUCY-APPLICATION/TodoApp/env/md --uid www-data --gid www-data
+WorkingDirectory=/home/ubuntu/TODOAPP-TECH-WITH-LUCY-APPLICATION/TodoApp 
+Environment="PATH=/home/ubuntu/TODOAPP-TECH-WITH-LUCY-APPLICATION/TodoApp/env/md/bin:$PATH"
+
+[Install]
+WantedBy=multi-user.target
+
+

@@ -8,7 +8,8 @@ services:
       - "8000:8000"
     volumes:
       - ./TodoApp:/app
-      - sqlite-data:/app/db.sqlite3
+      - ./TodoApp/db.sqlite3:/app/db.sqlite3 
+      - static-files:/app/static  
     environment:
       - DEBUG=True
 
@@ -20,3 +21,4 @@ services:
 
 volumes:
   sqlite-data:
+  static-files:  # Volume for static files
